@@ -2,13 +2,31 @@ package ex22;
 import java.util.Arrays;
 
 public class Empresa {
-    String nome, CNPJ;
+    private String nome, CNPJ;
     private String funcionarios[] = new String[10];
     private int numeroFuncionarios = 0;
 
     public Empresa(String nome, String cnpj) {
         this.nome = nome;
         this.CNPJ = cnpj;
+    }
+
+    public String getNome() { return nome; }
+    public String getCNPJ() { return CNPJ; }
+
+    public void setNome(String nome) {
+        if(nome == null && nome.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
+        this.nome = nome;
+    }
+    public void setCNPJ(String CNPJ) {
+        if(CNPJ == null && CNPJ.isEmpty()){
+            System.out.println("CNPJ não pode ser vazio.");
+            return;
+        }
+        this.CNPJ = CNPJ;
     }
 
     public void adicionarFuncionario(String n){

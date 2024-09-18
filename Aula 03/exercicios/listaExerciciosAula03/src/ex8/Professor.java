@@ -1,7 +1,7 @@
 package ex8;
 
 public class Professor {
-    String nome, disciplina;
+    private String nome, disciplina;
     private double salario;
     private boolean aula = false, provas = false;
 
@@ -11,22 +11,40 @@ public class Professor {
         this.salario = salario;
     }
 
-    public double verSalario(){
-        return salario;
+    public String getNome() { return nome; }
+    public String getDisciplina() { return disciplina; }
+    public double getSalario(){ return salario; }
+    public boolean getAula(){ return aula; }
+    public boolean getProvas(){ return provas; }
+
+    public void setNome(String nome) {
+        if(nome == null && nome.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
+        this.nome = nome;
+    }
+    public void setDisciplina(String disciplina) {
+        if(disciplina == null && disciplina.isEmpty()){
+            System.out.println("Curso não pode ser vazio.");
+            return;
+        }
+        this.disciplina = disciplina;
+    }
+    public void setSalario(double salario) {
+        if(salario < 0){
+            System.out.println("Salario não pode ser negativo");
+            return;
+        }
+        this.salario = salario;
     }
 
-    public boolean dandoAula(){
-        return aula;
-    }
     public void darAula(boolean set){
         aula = set;
         if(aula) System.out.println("Professor esta dando aula");
         else System.out.println("Professor parou de dar aula");
     }
 
-    public boolean corrigindo(){
-        return provas;
-    }
     public void corrigirProvas(boolean set){
         provas = set;
         if(provas) System.out.println("Professor esta corrigindo as provas");
@@ -42,8 +60,3 @@ public class Professor {
                 '}';
     }
 }
-/*
-Crie uma classe Professor com atributos
-nome, disciplina, e salario.
-Adicione métodos para dar aula e corrigir provas.
-*/

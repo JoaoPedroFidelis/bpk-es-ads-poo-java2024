@@ -1,8 +1,8 @@
 package ex15;
 
 public class Jogo {
-    String nome, genero;
-    double preco;
+    private String nome, genero;
+    private double preco;
     private boolean iniciado = false;
     private boolean pause = false;
 
@@ -12,9 +12,38 @@ public class Jogo {
         this.preco = preco;
     }
 
-    public boolean jogoPausado(){
+    public String getNome() { return nome; }
+    public String getGenero() { return genero; }
+    public double getPreco() { return preco; }
+    public boolean getPause(){
         return pause;
     }
+    public boolean getIniciado(){
+        return iniciado;
+    }
+
+    public void setNome(String nome) {
+        if(nome == null && nome.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
+        this.nome = nome;
+    }
+    public void setGenero(String genero) {
+        if(genero == null && genero.isEmpty()){
+            System.out.println("Genero não pode ser vazio.");
+            return;
+        }
+        this.genero = genero;
+    }
+    public void setPreco(double preco) {
+        if(preco < 0){
+            System.out.println("Preco não pode ser negativo.");
+            return;
+        }
+        this.preco = preco;
+    }
+
     public void pausar(boolean set){
         if(iniciado == false){
             System.out.println("Jogo não foi iniciado...");
@@ -23,10 +52,6 @@ public class Jogo {
         pause = set;
         if(pause) System.out.println("Jogo pausado!");
         else System.out.println("Jogo despausado!");
-    }
-
-    public boolean jogoIniciado(){
-        return iniciado;
     }
     public void iniciar(){
         if(iniciado == true){

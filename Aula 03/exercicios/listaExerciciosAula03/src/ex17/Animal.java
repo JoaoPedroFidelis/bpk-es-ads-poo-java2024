@@ -1,9 +1,9 @@
 package ex17;
 
 public class Animal {
-    String especie;
-    int idade;
-    double peso;
+    private String especie;
+    private int idade;
+    private double peso;
     private boolean alimentado = false;
     private boolean dormindo = false;
 
@@ -13,9 +13,34 @@ public class Animal {
         this.peso = peso;
     }
 
-    public boolean foiAlimentado(){
-        return alimentado;
+    public String getEspecie() { return especie; }
+    public int getIdade() { return idade; }
+    public double getPeso() { return peso; }
+    public boolean isAlimentado() { return alimentado; }
+    public boolean isDormindo() { return dormindo; }
+
+    public void setEspecie(String especie) {
+        if(especie == null && especie.isEmpty()){
+            System.out.println("Especie não pode ser vazio.");
+            return;
+        }
+        this.especie = especie;
     }
+    public void setIdade(int idade) {
+        if(idade < 0){
+            System.out.println("Idade não pode ser negativa.");
+            return;
+        }
+        this.idade = idade;
+    }
+    public void setPeso(double peso) {
+        if(peso < 0){
+            System.out.println("Peso não pode ser negativo.");
+            return;
+        }
+        this.peso = peso;
+    }
+
     public void alimentar(){
         if(alimentado == true) {
             System.out.println("Animal ja foi alimentado!");
@@ -23,9 +48,6 @@ public class Animal {
         }
         alimentado = true;
         System.out.println("Animal foi alimentado!");
-    }
-    public boolean estaDormindo(){
-        return dormindo;
     }
     public void dormir(boolean set){
         dormindo = set;

@@ -1,7 +1,7 @@
 package ex2;
 
 public class Celular {
-    String marca, modelo;
+    private String marca, modelo;
     private float capacidade_bateria;
     private Boolean ligado = false;
 
@@ -11,9 +11,25 @@ public class Celular {
         this.capacidade_bateria = capacidade_bateria;
     }
 
+    public String getMarca() { return marca; }
+    public String getModelo() { return modelo; }
     public float getCapacidade_bateria() { return capacidade_bateria; }
     public Boolean getLigado(){ return ligado; }
 
+    public void setMarca(String marca) {
+        if(marca == null && marca.isEmpty()){
+            System.out.println("Marca não pode ser vazia.");
+            return;
+        }
+        this.marca = marca;
+    }
+    public void setModelo(String modelo) {
+        if(modelo == null && modelo.isEmpty()){
+            System.out.println("Marca não pode ser vazia.");
+            return;
+        }
+        this.modelo = modelo;
+    }
     public void setCapacidade_bateria(float capacidade_bateria) {
         if(capacidade_bateria < 0){
             System.out.println("Capacidade não pode negativa");

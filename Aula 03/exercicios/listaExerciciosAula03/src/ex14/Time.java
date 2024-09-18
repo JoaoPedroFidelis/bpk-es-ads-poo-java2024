@@ -3,12 +3,30 @@ package ex14;
 import java.util.Arrays;
 
 public class Time {
-    String nome, tecnico;
+    private String nome, tecnico;
     private String jogadores[] = new String[10];
     private int numeroDeJogadores = 0;
 
     public Time(String nome, String tecnico) {
         this.nome = nome;
+        this.tecnico = tecnico;
+    }
+
+    public String getNome() { return nome; }
+    public String getTecnico() { return tecnico; }
+
+    public void setNome(String nome) {
+        if(nome == null && nome.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
+        this.nome = nome;
+    }
+    public void setTecnico(String tecnico) {
+        if(tecnico == null && tecnico.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
         this.tecnico = tecnico;
     }
 

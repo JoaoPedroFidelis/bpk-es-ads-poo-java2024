@@ -1,7 +1,7 @@
 package ex3;
 
 public class Pessoa {
-    public String nome;
+    private String nome;
     private int idade;
     private double altura;
 
@@ -11,9 +11,17 @@ public class Pessoa {
         this.altura = altura;
     }
 
+    public String getNome() { return nome; }
     public int getIdade() { return idade; }
     public double getAltura() { return altura; }
 
+    public void setNome(String nome) {
+        if(nome == null && nome.isEmpty()){
+            System.out.println("Nome não pode ser vazio.");
+            return;
+        }
+        this.nome = nome;
+    }
     public void setIdade(int idade) {
         if(idade < 0){
             System.out.println("Idade não pode ser negativa");
